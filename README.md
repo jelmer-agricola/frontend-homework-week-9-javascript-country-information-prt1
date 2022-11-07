@@ -21,6 +21,8 @@ aan om gebruik te maken van de endpoints uit versie 2 (versie 3 is nog niet zo b
    De `node_modules` map wordt immers niet meegepusht naar GitHub. Omdat er een `package.json` aanwezig is in het
    bestand, kun je dit doen met het volgende (globale) commando:
 
+De pacakges parcel en npm zijn geinstalleerd 
+
 ```shell
 npm install
 ```
