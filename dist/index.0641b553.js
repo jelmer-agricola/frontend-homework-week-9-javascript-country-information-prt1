@@ -541,7 +541,7 @@ async function fetchCountriesData() {
         const result = await (0, _axiosDefault.default).get("https://restcountries.com/v2/all");
         const countries = result.data;
         console.log(result);
-        console.log(result.data);
+        // console.log(result.data);
         //4.  los een land loggen Nederland in dit geval
         console.log(result.data[157].population);
         // sort functie maken voor landen op populatie van laag naar hoog
@@ -555,12 +555,8 @@ async function fetchCountriesData() {
     //  // }
     //  // console.log(newArray);
     // console.log(countryName);
-    } catch (err) {
-        console.error(err);
-        const errorMessage = doucment.getElementById("error-message");
-        //    check welke error message van toepassing is
-        if (err.result.status === 404) errorMessage.textContent = "Page nog Found | 404";
-        if (err.result.status === 500) errorMessage.textContent = "Internal Service error | 500";
+    } catch (e) {
+        console.error(e);
     }
 }
 fetchCountriesData();

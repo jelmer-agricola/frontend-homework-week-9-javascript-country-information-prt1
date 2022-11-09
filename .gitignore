@@ -2,15 +2,3 @@
 /node_modules
 /.parcel-cache
 
-#Voor ieder land geef je het volgende weer:
- #De naam van het land
- #De vlag van dat land
- #De zin: Has a population of [amount] people
-
-# De landen zijn gesorteert op populatie, van laag naar hoog;
-# De land-namen moeten worden weergegeven in een kleur die overeenkomt met het continent waar het land in ligt. Tip: maak hier een aparte functie voor die een regio-naam verwacht en bepaalt welke kleur het land moet krijgen. Een land ligt meestal in één van de volgende vijf contintenten, maar uitzonderingen kunnen voorkomen:
-# Africa: blauw
-# Americas: groen
-# Asia: rood
-# Europe: geel
-# Oceania: paars
