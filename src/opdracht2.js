@@ -13,8 +13,8 @@ searchForm.addEventListener('submit', searchCountry);
 const countryInfoBox = document.getElementById('search-result');
 const errorMessageBox = document.getElementById('error-message');
 
-function searchCountry(e) {
-    e.preventDefault();
+function searchCountry(err) {
+    err.preventDefault();
     const queryfield = document.getElementById('query-field')
 
     fetchCountryData(queryfield.value);
@@ -34,13 +34,15 @@ async function fetchCountryData(name) {
         countryInfoBox.removeChild(previousSearchResult);
     }
 
+    const URI = `https://restcountries.com`
+    const ENDPOINT = `/v2/name/${name}`
 
     try {
-        const result = await axios.get(`https://restcountries.com/v2/name/${name}`);
+        const result = await axios.get(URI + ENDPOINT);
         const country = result.data[0];
         console.log(country);
         //     3. Probeer eens om de _naam_ en _populatie_ van het land te loggen in de console. Welk pad moet je hiervoor volgen?
-              // const response = await axios.get(`https://restcountries.com/v2/name/nederland`);
+        // const response = await axios.get(`https://restcountries.com/v2/name/nederland`);
 
 
         const countryContainer = document.createElement('article');
@@ -81,8 +83,8 @@ async function fetchCountryData(name) {
         countryInfoBox.appendChild(countryContainer);
 
 
-    } catch (e) {
-        console.error(e);
+    } catch (err) {
+        console.error(err);
         const errorMessage = document.createElement('p');
         // Check welke error message van toepassing is
         errorMessage.setAttribute('class', 'error-message');

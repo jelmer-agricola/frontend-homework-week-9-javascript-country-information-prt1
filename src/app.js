@@ -1,6 +1,17 @@
 // https://github.com/jelmer-agricola/frontend-homework-week-9-javascript-country-information-prt1/pull/1
 import axios from 'axios';
 
+const sortedCountries = document.getElementById('sort-button');
+sortedCountries.addEventListener('click', searchCountry);
+
+function sortCountries() {
+    countries.sort((a, b) => a.population - b.population);
+
+
+}
+
+
+
 async function fetchCountriesData() {
     try {
         const result = await axios.get('https://restcountries.com/v2/all');
@@ -12,7 +23,6 @@ async function fetchCountriesData() {
         console.log(result.data[157].population);
 // sort functie maken voor landen op populatie van laag naar hoog
 
-        countries.sort((a, b) => a.population - b.population);
 
 
         generateCountriesList(countries);

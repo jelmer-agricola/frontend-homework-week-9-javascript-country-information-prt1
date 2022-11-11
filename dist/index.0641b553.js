@@ -536,17 +536,21 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 // https://github.com/jelmer-agricola/frontend-homework-week-9-javascript-country-information-prt1/pull/1
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
+const sortedCountries = document.getElementById("sort-button");
+sortedCountries.addEventListener("click", searchCountry);
+function sortCountries() {
+    countries.sort((a, b)=>a.population - b.population);
+}
 async function fetchCountriesData() {
     try {
         const result = await (0, _axiosDefault.default).get("https://restcountries.com/v2/all");
-        const countries = result.data;
+        const countries1 = result.data;
         console.log(result);
         // console.log(result.data);
         //4.  los een land loggen Nederland in dit geval
         console.log(result.data[157].population);
         // sort functie maken voor landen op populatie van laag naar hoog
-        countries.sort((a, b)=>a.population - b.population);
-        generateCountriesList(countries);
+        generateCountriesList(countries1);
     // array loggen met landnamen of iets anders.
     // const newArray = [];
     //
